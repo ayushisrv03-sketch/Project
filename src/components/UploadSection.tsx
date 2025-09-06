@@ -35,6 +35,12 @@ export const UploadSection = ({ onResumeUpload, isLoading }: UploadSectionProps)
   }, []);
 
   const handleFileUpload = async (file: File) => {
+     const allowedTypes = [
+    "application/pdf",
+    "text/plain",
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  ];
     if (file.type !== "application/pdf" && !file.type.startsWith("text/")) {
       alert("Please upload a PDF or text file");
       return;
